@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        //     console.log(this)
+        // }
+        // Person.prototype = {
+        //     showName:function(){
+        //         console.log("I'm "+this.name);
+        //     },
+        //     showAge:function(){
+        // 		console.log("And I'm "+this.age);
+        // 	}
+        // }
+        // Person()
+        // const person = new Person('小明',19)
+
+
+        /**
+         * 1、创建了一个新的对象
+         * 2、将对象的__proto__指向构造函数的prototype
+         * 3、改变构造函数中this指向, 指向新对象
+         * 4、将这个新对象赋值给等号左边的变量
+        */
+        // console.log(Person.prototype)
+        // console.log(person.__proto__)
+
+
+
+        // 构造函数
+        function Foo(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Object.prototype.toString = function () {
+            //this是什么要看执行的时候谁调用了这个函数。
+            console.log("I'm " + this.name + " And I'm " + this.age);
+        }
+        var fn = new Foo('小明', 19);
+        fn.toString(); //I'm 小明 And I'm 19
+        console.log(Foo.prototype.__proto__ === Object.prototype);
+        console.log(Object.prototype);
+    </script>
+</body>
+
+</html>

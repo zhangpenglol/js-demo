@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //js的if语句，会把其它数据类型强制转换为boolean类型
+
+
+
+        // if (判断表达式) {
+        //     执行内容
+        // }
+
+        // 如果判断表达式为true，则执行括号中的内容。
+        // 这里，变量如果不为0，null，undefined，false，都会被处理为true。只要变量有非0的值或是某个对象，数组，字符串，都会认为true
+        // 变量 == true，变量为bool值，并且为true，才认为符合。
+
+
+
+        // var a;//定义一个变量没有初始化
+
+        // if (a) { alert(1) return };//这里不会执行，因为a没有值，所以为false；
+
+        // a = 0//这里给a赋值为0
+
+        // if (a) { alert(1) return };//在来执行这句话，因为a=0；0代表false，所以还是不执行；
+
+        // a = 1或者a =“123”；
+
+        // if (a) { alert(1) return };//这里a=除0以为的数，或者字符或者obj都表示为真，这里的alert就会执行！
+
+
+        // var b;
+
+        // if (b == "") 和if(b == null)这里谁会执行呢，当然是后面一种，因为b是没有定义值的，如果是var b = ""，这样的话就会执行第一种;
+
+        // b = 1;
+
+        // if (b == 1) 和if(b == "1")这里哪一种会执行呢，答案是两种都会执行！因为js的 == 表示的是数值相等；
+
+
+        // var c;
+
+        // c = 0;
+
+        // if (c == false) 会不会执行呢，答案是肯定的；
+
+        // c = 1;
+
+        // if (c == true) 也一样会执行！但是我们看下面这样会执行么？
+
+        // c = 2或者c = "admin"
+
+        // if (c == true) alert(1)这句话会执行么，答案是否定的，因为默认表示的是，0为false而1为true，对于其他的就没有这么定义，所以这里不会执行，当然如果你是这样if(c)那这里就会执行了！
+    </script>
+</body>
+
+</html>

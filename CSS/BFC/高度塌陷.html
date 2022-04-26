@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        1、bfc概念
+        BFC即Block Formatting Contexts，块级格式上下文
+
+        页面中的根元素html就是一个BFC，所以我们的html文档会遵从默认的布局规则
+        文本从左到右、从上到下进行排列
+        块级元素默认占据一行，即块元素尾部带有一个换行符
+        行元素的尾部不带有换行符
+        行内元素需要包含在块级元素中
+
+        每个BFC也可以制定自己的规则，向下去制定子元素的布局规则
+
+        总结：BFC是一个完全独立的空间（布局环境），让空间里的子元素不会影响到外面的布局
+
+        2、触发bfc条件:
+        overflow: hidden
+        display: inline-block
+        position: absolute
+        position: fixed
+        display: table-cell
+        display: flex        
+        */
+        .box {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+
+        .container {
+            background: #000;
+            display: inline-block;
+            /*触发bfc*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>

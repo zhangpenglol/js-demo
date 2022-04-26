@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 路由入口，这里将会在浏览器被渲染成a标签，点击不同的入口将会在路由的出口渲染出匹配的组件 -->
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+
+    <!-- 路由出口，点击路由的入口后，会在这里渲染出组件 -->
+    <router-view></router-view>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
+  <script>
+    var foo = `<div><h1>这里是FOO</h1></div>`;
+    var bar = `<div><h1>这里是BAR</h1></div>`;
+    var faa = `<div><h1>faa</h1></div>`;
+
+    var vm = new Vue({
+      el: '#app',
+      router: new VueRouter({
+        routes: [
+          { path: '/', redirect: '/foo' }, // 这个表示会默认渲染foo
+          {
+            path: '/foo', component: { template: foo },
+            children:[
+              {
+                path:'/faa',component:{template: faa}
+              }
+            ]
+          },
+          { path: '/bar', component: { template: bar } }
+        ]
+      })
+    })
+  </script>
+</body>
+
+</html>

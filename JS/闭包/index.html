@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        闭包：闭包就是一个函数引用另一个函数内部的变量，因为变量被引用着，
+        所以当另外一个函数执行结束，其相应的执行上下文弹出栈时， 
+        变量并不会被回收，因此可以用来封装一个私有变量。不正当地使用闭包可能会造成内存泄漏。
+        */
+
+        //示例一：在函数中return一个函数
+        function makeFunc() {
+            var name = "Mozilla"
+            function displayName() {
+                alert(name)
+            }
+            return displayName
+        }
+
+        var myFunc = makeFunc()
+        myFunc()  // Mozilla
+
+        
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout(() => {
+        //         console.log(i)
+        //     })
+        // }
+
+        //使用闭包保护函数的私有变量
+        // for (var i = 0; i < 5; i++) {
+        //     (function(j){
+        //         setTimeout(() => {
+        //         console.log(j)
+        //     },j*1000)
+        //     })(i)
+        // }
+
+
+        //总结：保护函数的私有变量不受外部的干扰。形成不销毁的栈内存。
+        //保存，把一些函数内的值保存下来。闭包可以实现方法和属性的私有化
+
+    </script>
+</body>
+
+</html>

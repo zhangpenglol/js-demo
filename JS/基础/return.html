@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1、foreEach多次执行回调函数，回调函数中使用return（我们的代码都在回调中）没法直接终止foreEach，只能终止单次的回调。
+        2、return是跳出当前函数
+
+        循环语句里如果有return语句，尽量使用for循环或while循环
+        */
+        function test1() {
+                var arr1 = [1, 2, 3, 4, 5, 6];
+                arr1.forEach((item, idx) => {
+                    console.log('------' + idx + '------')
+                    return;
+                })
+                console.log('*********hahhaha*********')
+            }
+            test1();
+            console.log('---------test1执行完毕------------');
+ 
+            function test2() {
+                var arr1 = [1, 2, 3, 4, 5, 6];
+                for (var idx = 0; idx < arr1.length; idx++) {
+                    console.log('------' + idx + '------')
+                    return;
+                }
+                console.log('*********hehehe*********')
+            }
+            test2();
+            console.log('---------test2执行完毕------------');
+    </script>
+</body>
+</html>

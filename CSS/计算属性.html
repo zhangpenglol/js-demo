@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 Calc</title>
+    <style type="text/css" media="screen">
+    	html{
+    		font-size:62.5%;
+    	}
+		.wrapper{
+			width:100%;
+			border:5px solid #f00;
+			margin:10px ;
+			box-sizing:border-box;
+			height:200px;
+			clear:b;
+		}
+		.items{
+			height:calc(100% - 40px);
+			display:inline-block;
+			border:1px solid #f70;
+			text-align:center;
+		}
+
+		.w1 .items{
+
+			float:left;
+			margin-top:calc( 5 * 4px  );
+			border:3px solid #0F16C6;
+			width:calc(100% / 3 - 6px)
+		}
+
+		.w2 .items{
+			float:left;
+			margin-top:calc(200px - 20px * 9);
+			width:calc(100% / 3 - 2px)
+		}
+
+		.w3 .items{
+			float:left;
+			width:calc(100% / 3 - (3 * 6px));
+			margin:calc(2px * 4 );
+		}
+
+		.w3 .items:first-child{
+			padding:calc(5 * 1rem - 3rem);
+			box-sizing:border-box;
+		}
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper w1">
+        <div class="items">margin-top:calc( 5 * 4px  );</div>
+        <div class="items">margin-top:calc( 5 * 4px  );</div>
+        <div class="items">margin-top:calc( 5 * 4px  );</div>
+    </div>
+    <div class="wrapper w2">
+        <div class="items">margin-top:calc(200px - 20px * 9);</div>
+        <div class="items">margin-top:calc(200px - 20px * 9);</div>
+        <div class="items">margin-top:calc(200px - 20px * 9);</div>
+    </div>
+    <div class="wrapper w3">
+        <div class="items">width:calc(100% / 3 - (3 * 6px));<br>margin:calc(2px * 4 );<br>padding:calc(5 * 1rem - 3rem);</div>
+        <div class="items";>width:calc(100% / 3 - (3 * 6px));<br>margin:calc(2px * 4 )</div>
+        <div class="items";>width:calc(100% / 3 - (3 * 6px));<br>margin:calc(2px * 4 )</div>
+    </div>
+</body>
+
+</html>
+
+

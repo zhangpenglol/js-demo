@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1、变量提升
+        //案例1：undefined undefined 200 100
+        // console.log(v1);
+        // var v1 = 100;
+        // function foo() {
+        //     console.log(v1);
+        //     var v1 = 200;
+        //     console.log(v1);
+        // }
+        // foo();
+        // console.log(v1);
+
+        //原因：声明提升到它所在作用域的顶端去执行
+        /*
+        console.log(v1);
+        var v1;
+        v1 = 100;
+        */
+
+        //2、函数提升
+         //1
+
+        // var foo;
+
+        // function foo() {
+        //     console.log(1);
+        // }
+
+        // 开始预编译
+        //查找函数声明，作为GO属性，值赋予函数体
+        // 查找变量声明，作为GO属性，值赋予undefined
+        //先变量声明，再函数声明，之所以函数的声明提升优于变量的声明提升，是因为覆盖的原因
+    </script>
+</body>
+
+</html>

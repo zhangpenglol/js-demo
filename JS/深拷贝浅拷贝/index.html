@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = [1,2,3,{name:'kebe',age:46}];
+        
+        //浅拷贝
+        // function shallowCopy(obj){
+        //     let ob = {};
+        //     for(item in obj){
+        //         ob[item] = obj[item]
+        //     }
+        //     return ob;
+        // }
+
+        //深拷贝
+        function deepClone(obj) {
+            if (Array.isArray(obj)) {
+                //map返回一个新数组,deepClone会执行四次，
+                return obj.map(deepClone)
+            } else if (obj && typeof obj === 'object') {
+                const cloned = {}
+                //Object.keys()获取key
+                const keys = Object.keys(obj)
+                for (let i = 0; i < keys.length; i++) {
+                    const key = keys[i]
+                    cloned[key] = deepClone(obj[key])
+                }
+                return cloned
+            } else {
+                return obj
+            }
+        }
+
+        
+
+        let newObj = deepClone(obj);
+        
+        console.log(obj)
+        console.log(newObj)
+
+
+
+
+
+
+
+
+         //浅拷贝:拷贝的只是对象的引用（内存中的指针），当该对象的值改变也会影响到另外一个
+    </script>
+</body>
+
+</html>

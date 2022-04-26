@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //回调函数
+        function sum(value){
+            console.log('后执行',value)
+        }
+
+        function exfunction(extionfunction,value){
+            console.log('先执行')            
+            extionfunction(value)            
+        }
+
+        //将回调函数的参数作为与回调函数同等级的参数进行传递
+        exfunction(sum,'回调函数')
+    </script>
+</body>
+
+</html>

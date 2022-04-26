@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            background: url('./bg2.png');
+        }
+
+        .bg>div {
+            width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, .7);
+        }
+
+        .g-filter {
+            filter: blur(6px);
+        }
+
+        .g-backdrop-filter {
+            backdrop-filter: blur(6px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div>Normal</div>
+        <div class="g-filter">filter</div>
+        <div class="g-backdrop-filter">backdrop-filter</div>
+    </div>
+
+</body>
+
+</html>

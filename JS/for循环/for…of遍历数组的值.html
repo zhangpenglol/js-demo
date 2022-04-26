@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //for…of：遍历数组的值        
+        //数组
+        // var arr = ["星期一", "星期二", "星期三"];
+        // for (var i of arr) { //i是值
+        //     console.log(i)
+        // }
+
+        //不能遍历一个普通的对象，可以通过 内建Object.keys() 方法让 for..of 也支持
+        //对象
+        var obj = { guangzhou: '广州', shanghai: '上海', beijing: '北京' };
+        for (var i of obj) { //i是值
+            console.log(i)
+        }
+    </script>
+</body>
+
+</html>

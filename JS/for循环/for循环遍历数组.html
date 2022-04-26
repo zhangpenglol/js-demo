@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //forEach：遍历数组，但不能使用break、continue和return语句
+        //对象数组
+        // var arr = [
+        //     { guangzhou: '广州', shanghai: '上海', beijing: '北京' },
+        //     { Monday: '星期一', Tuesday: '星期二', Wednesday: '星期三' }
+        // ]
+        // let aa = arr.forEach(function(value,index){ //第一个参数是值，第二个参数是下标（索引）
+        //     console.log(value)
+        //     console.log(index)
+        // })
+
+        //数组
+        var arr = ["星期一", "星期二", "星期三"];
+        arr.forEach(function (value, index) {//第一个参数是值，第二个参数是下标（索引）
+            console.log(value)
+            console.log(index)
+        })
+    </script>
+</body>
+
+</html>

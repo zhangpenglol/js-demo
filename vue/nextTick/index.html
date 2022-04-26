@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" @click="handleClick" ref="test">{{message}}</div>
+</body>
+<script>
+    //当数据被修改后使用这个方法会回调获取更新后的dom再render出来
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'aaa'
+        },
+        methods: {
+            handleClick() {
+                this.message = 'bbb'
+                console.log(this.$refs.test.innerText)
+                this.$nextTick(function () {
+                    console.log(this.$refs.test.innerText)
+                })
+            }
+            
+        }
+    })
+</script>
+
+</html>

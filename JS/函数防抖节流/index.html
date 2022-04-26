@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="debounce" type="text">
+    <script>
+        function ajax(content) {
+            console.log(this,'ajax')
+            console.log('ajax request ' + content)
+        }
+
+        function debounce(fun, delay) {
+            return function (args) {
+                let that = this
+                let _args = args
+                clearTimeout(fun.id)
+                fun.id = setTimeout(function () {
+                   fun.call(that, _args)
+                }, delay)
+            }
+        }
+        let inputb = document.getElementById('debounce')
+
+        /*
+        1、debounce(ajax,500)先执行
+        2、返回函数赋值给 debounceAjax
+        3、debounceAjax(e.target.value)执行  function(args)
+
+        当键盘输入的值停止 500毫秒后才执行，中途还在输入的话停止执行  500毫秒后没有输入才执行
+
+        当键盘还在输入，setTimeout（异步任务）还未执行，每次输入后都会清空定时器，
+        500毫秒后没有输入后，同步任务执行完，执行回调函数
+        */
+        let debounceAjax = debounce(ajax, 500)
+        inputb.addEventListener('keyup', function (e) {
+            debounceAjax(e.target.value)
+        })
+
+    </script>
+</body>
+
+</html>
