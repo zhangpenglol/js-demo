@@ -12,6 +12,9 @@
     <input id="throttle" type="text">
     <script>
 
+        //规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。
+
+        
         function ajax(content) {
             console.log('ajax request ' + content)
         }
@@ -22,11 +25,8 @@
             return function (args) {
                 let that = this
                 let _args = arguments
-                let now = +new Date()
-                console.log(last,'00000')
+                let now = +new Date()  //+类似于 Date().getTime() 
                 if (last && now < last + delay) {
-                    debugger
-                    console.log(last,'111111')
                     clearTimeout(deferTimer)
                     deferTimer = setTimeout(function () {
                         last = now

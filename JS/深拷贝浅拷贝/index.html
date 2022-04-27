@@ -10,7 +10,61 @@
 
 <body>
     <script>
-        let obj = [1,2,3,{name:'kebe',age:46}];
+        let obj = [1,2,3,{name:'kebe',age:46}];    
+
+        function deepClone(origin, target) {
+            var target = target || {},
+                
+                toStr = Object.prototype.toString,
+                isArr = '[object Array]';
+                debugger
+            for(var key in origin) {
+                if(origin.hasOwnProperty(key)) {
+                    if(typeof origin[key] === 'object' && origin[key] !== null) {
+                        target[key] = toStr.call(origin[key]) === isArr ? [] : {}
+                        debugger
+                        deepClone(origin[key], target[key])
+                    } else {
+                        target[key] = origin[key]
+                    }
+                }
+            }
+
+            return target
+         }
+
+        
+
+        let newObj = deepClone(obj);
+        console.log(obj)
+        console.log(newObj)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
         //浅拷贝
         // function shallowCopy(obj){
@@ -21,31 +75,25 @@
         //     return ob;
         // }
 
-        //深拷贝
-        function deepClone(obj) {
-            if (Array.isArray(obj)) {
-                //map返回一个新数组,deepClone会执行四次，
-                return obj.map(deepClone)
-            } else if (obj && typeof obj === 'object') {
-                const cloned = {}
-                //Object.keys()获取key
-                const keys = Object.keys(obj)
-                for (let i = 0; i < keys.length; i++) {
-                    const key = keys[i]
-                    cloned[key] = deepClone(obj[key])
-                }
-                return cloned
-            } else {
-                return obj
-            }
-        }
+        // //深拷贝
+        // function deepClone(obj) {
+        //     if (Array.isArray(obj)) {
+        //         //map返回一个新数组,deepClone会执行四次，
+        //         return obj.map(deepClone)
+        //     } else if (obj && typeof obj === 'object') {
+        //         const cloned = {}
+        //         //Object.keys()获取key
+        //         const keys = Object.keys(obj)
+        //         for (let i = 0; i < keys.length; i++) {
+        //             const key = keys[i]
+        //             cloned[key] = deepClone(obj[key])
+        //         }
+        //         return cloned
+        //     } else {
+        //         return obj
+        //     }
+        // }
 
-        
-
-        let newObj = deepClone(obj);
-        
-        console.log(obj)
-        console.log(newObj)
 
 
 
