@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="throttle" type="text">
+    <script>
+
+        function ajax(content) {
+            console.log('ajax request ' + content)
+        }
+
+
+        function throttle(fun, delay) {
+            let last, deferTimer
+            return function (args) {
+                let that = this
+                let _args = arguments
+                let now = +new Date()
+                console.log(last,'00000')
+                if (last && now < last + delay) {
+                    debugger
+                    console.log(last,'111111')
+                    clearTimeout(deferTimer)
+                    deferTimer = setTimeout(function () {
+                        last = now
+                        fun.apply(that, _args)
+                    }, delay)
+                } else {
+                    last = now
+                    fun.apply(that, _args)
+                }
+            }
+        }
+
+        
+        
+
+        let throttleAjax = throttle(ajax, 1000)
+
+        let inputc = document.getElementById('throttle')
+        inputc.addEventListener('keyup', function (e) {
+            throttleAjax(e.target.value)
+        })
+
+    </script>
+</body>
+
+</html>
